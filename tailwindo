@@ -26,7 +26,7 @@ if (file_exists(__DIR__.'/vendor/autoload.php')) {
     
     ->addOption('extensions', 'e', InputOption::VALUE_REQUIRED, 'This allows for custom extensions', 'php,html')
 
-    ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'This will prepend the given namespace', '{tw-}flex')
+    ->addOption('namespace', null, InputOption::VALUE_REQUIRED, 'This will prepend the given namespace such as tw-flex', '')
 
     ->setCode(function (InputInterface $input, OutputInterface $output) {
         // output arguments and options
