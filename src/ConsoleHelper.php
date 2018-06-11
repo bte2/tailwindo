@@ -12,9 +12,10 @@ class ConsoleHelper
     protected $overwrite;
     protected $extensions;
 
-    public function __construct(OutputInterface $output, $recursive, $overwrite, $extensions)
+    public function __construct(OutputInterface $output, $recursive, $overwrite, $extensions, $namespace)
     {
         $this->converter = new Converter();
+        $this->converter->setNamespace($namespace);
         $this->output = $output;
         $this->recursive = $recursive;
         $this->overwrite = $overwrite;
