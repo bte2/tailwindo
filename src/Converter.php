@@ -6,6 +6,8 @@ class Converter
 {
     protected $givenContent = '';
 
+    protected $namespace = '';
+
     protected $isCssClassesOnly = false;
 
     protected $changes = 0;
@@ -74,6 +76,20 @@ class Converter
     public function setContent(string $content)
     {
         $this->givenContent = $content;
+
+        return $this;
+    }
+
+    /**
+     * Set the namespace.
+     *
+     * @param string $namespace
+     *
+     * @return Converter
+     */
+    public function setNamespace(string $namespace)
+    {
+        $this->givenNamespace = $namespace;
 
         return $this;
     }
@@ -711,6 +727,7 @@ class Converter
      */
     protected function searchAndReplace($search, $replace)
     {
+        $replace = $this->namespace . $replace;
         $currentContent = $this->givenContent;
 
         $regexStart = !$this->isCssClassesOnly ? '(?<start>class\s*=\s*["\'].*?)' : '(?<start>\s*)';
